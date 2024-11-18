@@ -1,0 +1,102 @@
+body{
+position: absolute;
+width: 300px;
+margin: 0;
+height: 600px;
+	clip: rect(0px, 300px, 600px, 0px);
+}
+
+#start {
+top: 0px;
+left: 0px;
+position: absolute;
+width: 300px;
+margin: 0;
+height: 600px;
+z-index: 1;
+  }
+#start img:nth-child(1) {
+position: absolute;
+top: 0px;
+left: 0px;
+}
+#start img:nth-child(2) {
+position: absolute;
+top: 330px;
+left: 200px;
+animation: pulse 2s infinite;
+}
+#game {
+top: 0px;
+left: 0px;
+position: absolute;
+width: 300px;
+margin: 0;
+height: 600px;
+z-index: 1;
+display: none;
+}
+#game img:nth-child(1) {
+position: absolute;
+top: 0px;
+left: 0px;
+}
+#game img:nth-child(2) {
+position: absolute;
+top: 0px;
+left: 0px;
+	z-index: 2;
+}
+#game img:nth-child(3) {
+position: absolute;
+top: 0px;
+left: 0px;
+}
+#game img:nth-child(4) {
+position: absolute;
+top: 0px;
+left: 50px;
+}
+#game img:nth-child(5) {
+position: absolute;
+top: 0px;
+left: 100px;
+}
+#game img:nth-child(6) {
+position: absolute;
+top: 440px;
+left: 0px;
+}
+
+#finish {
+top: 0px;
+left: 0px;
+position: absolute;
+width: 300px;
+margin: 0;
+height: 600px;
+z-index: 1;
+display: none;
+}
+#finish img:nth-child(1) {
+position: absolute;
+top: 0px;
+left: 0px;
+}
+
+
+@keyframes pulse {
+    0% {
+		transform: scale(1);
+ 
+    }
+    
+    50% {
+		transform: scale(1.2);
+       
+    }
+	100% {
+		transform: scale(1);
+       
+    }
+}
