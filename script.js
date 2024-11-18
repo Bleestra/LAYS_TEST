@@ -46,10 +46,19 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // Управление с помощью мыши
-        gameDiv.addEventListener('mousemove', function (e) {
-            if (!isDragging) {
+        player.addEventListener('mousedown', function (e) {
+            e.preventDefault();
+            isDragging = true; // Устанавливаем флаг удержания
+        });
+
+        document.addEventListener('mousemove', function (e) {
+            if (isDragging) {
                 movePlayer(e.clientX);
             }
+        });
+
+        document.addEventListener('mouseup', function () {
+            isDragging = false; // Сбрасываем флаг удержания
         });
 
         // Управление с помощью касания
