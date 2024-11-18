@@ -36,7 +36,23 @@ document.addEventListener("DOMContentLoaded", function () {
         player.style.bottom = '10px';
         player.style.left = '0px';
 
-        // Движение игрока при касании и перемещении
+        // Универсальная функция для движения игрока
+        function movePlayer(x) {
+            var rect = gameDiv.getBoundingClientRect();
+            var adjustedX = x - rect.left;
+
+            // Устанавливаем пределы движения от -100 до 300
+            player.style.left = Math.max(-100, Math.min(300, adjustedX - player.width / 2)) + 'px';
+        }
+
+        // Управление с помощью мыши
+        gameDiv.addEventListener('mousemove', function (e) {
+            if (!isDragging) {
+                movePlayer(e.clientX);
+            }
+        });
+
+        // Управление с помощью касания
         player.addEventListener('touchstart', function (e) {
             e.preventDefault();
             isDragging = true; // Устанавливаем флаг удержания
@@ -45,11 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.addEventListener('touchmove', function (e) {
             if (isDragging) {
                 var touch = e.touches[0];
-                var rect = gameDiv.getBoundingClientRect();
-                var x = touch.clientX - rect.left;
-
-                // Устанавливаем пределы движения от -100 до 300
-                player.style.left = Math.max(-100, Math.min(300, x - player.width / 2)) + 'px';
+                movePlayer(touch.clientX);
             }
         });
 
